@@ -25,10 +25,11 @@ class Post(models.Model):
     thumb_offset = models.CharField(max_length=255, default="", null=False, blank=False)
     access_token = models.CharField(max_length=2200, default="", null=False, blank=False)
     ig_user_id = models.CharField(max_length=2200, default="", null=False, blank=False)
+    is_posted = models.BooleanField(default=False)
 
 
 class Photo(models.Model):
     title = models.CharField(max_length=100, default="")
     # photo = models.ImageField(upload_to='posts', null=False)
-    url = models.CharField(null=False, blank=False)
+    url = models.CharField(null=False, blank=False, max_length=2200)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
